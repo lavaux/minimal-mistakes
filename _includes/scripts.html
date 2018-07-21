@@ -1,5 +1,12 @@
-{% if site.footer_scripts %}
-  {% for script in site.footer_scripts %}
+{% assign all_scripts = "" | split: "" %}
+{% for s in site.footer_scripts %}
+{%  assign all_scripts = all_scripts | push: s %}
+{% endfor %}
+{% for s in layout.footer_scripts %}
+  {% assign all_scripts = all_scripts | push: s %}
+{% endfor%}
+{% if all_scripts %}
+  {% for script in all_scripts %}
     {% if script contains "://" %}
       {% capture script_path %}{{ script }}{% endcapture %}
     {% else %}
