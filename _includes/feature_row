@@ -4,16 +4,35 @@
   {% assign feature_row = page.feature_row %}
 {% endif %}
 
+{% assign btn_class = include.btn_class | default: "" %}
+
+
 <div class="feature__wrapper">
 
   {% for f in feature_row %}
+    {% assign url = nil %}
+    {% assign f_excerpt = nil %}
+    {% assign f_page = nil %}
 
-    {% if f.url contains "://" %}
-      {% capture f_url %}{{ f.url }}{% endcapture %}
+    {% if f.id %}
+      {% for post in site.posts%}
+        {% if post.id == f.id %}
+          {% assign f_page = post %}
+        {% endif %}
+      {%endfor%}
+      {% assign url = f_page.url %}
+      {% assign f_excerpt = f_page.description %}
     {% else %}
-      {% capture f_url %}{{ f.url | relative_url }}{% endcapture %}
+      {% assign url = f.url %}
+      {% assign f_excerpt = f.excerpt %}
     {% endif %}
-
+    {%if url %}
+      {% if url contains "://" %}
+        {% capture f_url %}{{ url }}{% endcapture %}
+      {% else %}
+        {% capture f_url %}{{ url | relative_url }}{% endcapture %}
+      {% endif %}
+    {% endif %}
     <div class="feature__item{% if include.type %}--{{ include.type }}{% endif %}">
       <div class="archive__item">
         {% if f.image_path %}
@@ -36,14 +55,14 @@
             <h2 class="archive__item-title">{{ f.title }}</h2>
           {% endif %}
 
-          {% if f.excerpt %}
+          {% if f_excerpt %}
             <div class="archive__item-excerpt">
-              {{ f.excerpt | markdownify }}
+              {{ f_excerpt | markdownify }}
             </div>
           {% endif %}
 
-          {% if f.url %}
-            <p><a href="{{ f_url }}" class="btn {{ f.btn_class }}">{{ f.btn_label | default: site.data.ui-text[site.locale].more_label | default: "Learn More" }}</a></p>
+          {% if url %}
+            <p><a href="{{ f_url }}" class="btn {{ btn_class }}">{{ f.btn_label | default: site.data.ui-text[site.locale].more_label | default: "Learn More" }}</a></p>
           {% endif %}
         </div>
       </div>
