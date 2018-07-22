@@ -5,4 +5,4 @@
 @charset "utf-8";
 
 {% include minimal-mistakes-variables skin=site.minimal_mistakes_skin do_post=true %}
-//@import "minimal-mistakes"; // main partials
+@import "minimal-mistakes"; // main partials
