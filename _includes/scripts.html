@@ -5,7 +5,7 @@
 {% for s in layout.footer_scripts %}
   {% assign all_scripts = all_scripts | push: s %}
 {% endfor%}
-{% if all_scripts %}
+{% if all_scripts.size > 0 %}
   {% for script in all_scripts %}
     {% if script contains "://" %}
       {% capture script_path %}{{ script }}{% endcapture %}
