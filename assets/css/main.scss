@@ -4,7 +4,5 @@
 
 @charset "utf-8";
 
-{% assign skin = site.minimal_mistakes_skin | default: 'default' %}
-{% include minimal-mistakes-variables skin=skin %}
-@import "minimal-mistakes/skins/{{ include.skin }}-post";
-@import "minimal-mistakes"; // main partials
+{% include minimal-mistakes-variables skin=site.minimal_mistakes_skin do_post=true %}
+//@import "minimal-mistakes"; // main partials

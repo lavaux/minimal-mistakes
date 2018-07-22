@@ -1,2 +1,7 @@
-@import "minimal-mistakes/skins/{{ include.skin }}"; // skin
+@import "minimal-mistakes/skins/{{ include.skin | default='default' }}"; // skin
 @import "minimal-mistakes/variables";
+
+{% if include.do_post == true %}
+@import "minimal-mistakes/skins/{{ include.skin | default='default' }}-post";
+{% endif %}
+
