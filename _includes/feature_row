@@ -11,7 +11,7 @@
 {% assign btn_class = include.btn_class | default: "" %}
 
 
-<div class="feature__wrapper">
+<div class="feature__wrapper {{include.class}}">
 
   {% for f in feature_row %}
     {% assign url = nil %}
