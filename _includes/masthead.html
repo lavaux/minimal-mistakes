@@ -1,8 +1,13 @@
 <div class="masthead">
   <div class="masthead__inner-wrap">
+    {% if site.mast_logo %}
+    <a class="site-title-img" href="{{ '/' | relative_url }}"><img alt="{{site.title}}" src="{{ site.mast_logo | relative_url }}" /></a>
+    {%endif%}
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
+        {% if site.mast_logo == null %}
         <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+        {% endif %}
         <ul class="visible-links">
           {% for link in site.data.navigation.main %}
             {% if link.url contains 'http' %}
