@@ -4,7 +4,7 @@
       <li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li>
     {% endif %}
     {% if site.gnusocial.instance %}
-      <li><a href="https://{{ site.gnusocial.instance }}/{{ site.gnusocial.username }}"><img src="{{"/assets/images/gnusocial.png" | relative_url}}" /> Gnu Social</a></li>
+      <li><a href="https://{{ site.gnusocial.instance }}/{{ site.gnusocial.username }}"><img aria-hidden="true" alt="Gnu Social icon" src="{{"/assets/images/gnusocial.png" | relative_url}}" /> Gnu Social</a></li>
     {% endif %}
     {% if site.twitter.username %}
       <li><a href="https://twitter.com/{{ site.twitter.username }}"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
