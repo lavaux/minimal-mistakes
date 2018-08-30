@@ -15,7 +15,9 @@
 
 <!-- For all browsers -->
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-{% assign css_list = site.head_css | concat: layout.head_css | concat: page.head_css %}
+{% assign css_list = site.head_css %}
+{% if layout.head_css %} {% assign css_list = css_list | concat: layout.head_css %}{%endif%}
+{% if page.head_css %} {% assign css_list = css_list | concat: page.head_css %}{%endif%}
 {% if css_list %}
 {% for script in css_list %}
     {% if script contains "://" %}
