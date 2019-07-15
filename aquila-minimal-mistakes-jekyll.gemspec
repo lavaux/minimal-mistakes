@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name                    = "aquila-minimal-mistakes-jekyll"
-  spec.version                 = "4.12.0.13"
+  spec.version                 = "4.12.0.14"
   spec.authors                 = ["Guilhem Lavaux", "Michael Rose"]
 
   spec.summary                 = %q{A flexible two-column Jekyll theme.}
